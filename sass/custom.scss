@@ -1,0 +1,1232 @@
+@import '_variables.scss';
+@import '_mixins.scss'; 
+@import '_utilities.scss';
+@import '_grid.scss';
+@import '_buttons.scss';
+@import '_base.scss';
+@import '_menu.scss';
+@import '_navbar.scss';
+@import '_animate.scss';
+
+
+header {
+    z-index: -1;
+    position: fixed;
+    top: 0;
+    left:0px;
+    right:0px;
+    min-height: 50px;
+    .logo a {
+        color:$white;
+        text-decoration: none;
+    }
+}
+.fullpage-wrapper {
+  height: 100%;
+}
+// home top content starts
+.block.home-top-content {
+  @include text-align();
+  @include soft--ends(5%);
+  background-color: $white;
+  @include flush--ends();
+  
+  @media screen and (max-width: $break--M) {
+    @include text-align(left);
+    width: 100%;
+    /* @include soft--ends(20%); */
+    /* @include soft--sides(30px); */
+  }
+  .content {
+    h2 {
+        @extend .h4;
+        margin: 15px 0;
+    }
+    article {
+      width: 60%;
+      margin: auto;
+      color: $grayDark;
+      @media screen and (max-width: $break--XL) { 
+        width: 70%;
+      }
+      @media screen and (max-width: $break--M) { 
+        width: 100%;
+        @include push--ends(30px);
+      }
+    }
+    .right-content {
+      position: absolute;
+      right: 0;
+      width: 25%;
+      top: 0;
+    }
+    @media screen and (max-width: $break--M) { 
+      margin-top: 4em;
+    }
+  }
+
+}
+
+  .video-fullpage {
+      height: 100vh;
+      width: 100%;
+      
+      z-index: 0;
+      position: relative;
+      top: 0;
+      .video-player, .videoplayer {
+        position: absolute;
+        right: 0;
+        bottom: 0;
+        min-width: 100%;
+        min-height: 100%;
+      }
+  }
+
+  .header-content {
+    position: relative;
+    height: calc(100% - 50%);
+    h3.title {
+      width: 50%;
+      min-width: 662px;
+      line-height: 72px;
+      margin-bottom: 20px;
+      @media (max-width: $screen--M) {
+        min-width: auto;
+        width: 100%;
+        line-height: 50px;
+      }
+    }
+    a.link {
+      color : $white;
+      margin: 5% 0;
+      display: block;
+    }
+    h5 {
+      line-height: 28px;
+      font-size: 18px;
+      font-weight: 400;
+      font-family: $base-font-secondary;
+      width: 40%;
+      @media (max-width: $screen--M) {
+        width: 100%;
+      }
+    }
+  }
+
+  .service-rollovers {
+    position: absolute;
+    bottom:0px;
+    left:0;
+    right:0;
+    z-index: 1;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    @media (max-width: $screen--M) {
+      flex-direction: column;
+      position: relative;
+      float: left;
+    }
+
+    .tab{
+      height: 20vh;
+      position: relative;
+      flex:1;
+      text-align: center;
+      background-color: rgba(128, 128, 128, 0.2);
+      overflow: hidden;
+      cursor: pointer;
+      font-size: 21px;
+      margin-right:5px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding :10px;
+
+      @media (max-width: $screen--M) {
+        margin-right: 0;
+        margin-top: 10px;
+        flex: none;
+      }
+
+      &:last-child{
+        margin-right:0px;
+      }
+
+      &:first-child{
+        .inner{
+         
+          @media (min-width: $screen--XL) {
+            padding-left: 6em;
+          }
+          .link {
+            @media (min-width: $screen--XL) {
+              left: 125px;
+            }
+            
+          }
+        }
+      }
+
+      span {
+        font-size: 18px;
+        @media (max-width: $screen--XL) {
+        font-size: 15px;
+        }
+      }
+
+      .link i {
+        color :$white;
+      }
+
+      &:hover {
+        background-color: #00000061;
+        .inner {
+          bottom: 0%;
+        }
+      }
+
+      .inner {
+        background:$blue;
+        bottom: -100%;
+        color: #fff;
+        height: 100%;
+        left: 0%;
+        position: absolute;
+        transition: bottom 0.5s ease;
+        width: 100%;
+        @include soft--ends(2em);
+        @include soft--sides(3em);
+        flex-direction: row;
+        box-sizing: border-box;
+        text-align: left;
+        font-family: $base-font-secondary;
+        
+        
+
+        @media (max-width: $screen--XL) {
+          @include soft--ends(15px);
+          @include soft--sides(2em);
+          line-height: 1.3;
+
+        }
+
+        a{
+          position: absolute;
+          bottom: 18px;
+          left: 65px;
+          color: #fff;
+          text-decoration: none;
+          font-family: $base-font-secondary;
+
+          @media (max-width: $screen--XL) {
+            bottom: 15px;
+              left: 43px;    
+              line-height: 1;    
+          }
+
+          i{
+            font-size: 14px;
+            margin-left: 12px;
+          }
+
+          &:hover{
+            text-decoration: underline;
+          }
+        }
+      }
+    }
+  }
+ 
+  .header-slider {
+    position: absolute;
+    top:0;
+    color:$white;
+    left: 0;
+    right: 0;
+    height: 100%;
+    background-color: rgba(2, 2, 2, 0.5);
+    .fp-controlArrow, .fp-slidesNav {
+      display: none;
+    }
+    .slide {
+      .content {
+        position: relative;
+        height: 58vh;
+       /* @media (max-width: $screen--L) {
+          padding: 5%;
+        }  */
+        @media (max-width: $screen--M) {
+          height: 38vh;
+          /* display: none; */
+        }
+        .right-content {
+            font-family: $base-font-secondary;
+            position: absolute;
+            width: 20%;
+            right: 5em;
+            top: 5%;    
+            border-left: 2px solid;
+            padding-left: 30px;
+            line-height: 24px;
+            font-weight: lighter;
+            min-width: 290px;
+            @media (max-width: $screen--L) {
+              display: none;
+            }
+
+            a.link {
+                margin: 5% 0;
+                color: $lightblue;
+                text-transform: uppercase;
+                border-bottom: 1px solid;
+                display: inline-block;
+            }
+        }
+      }
+      .tab-navigation {
+        // display: none;
+        opacity: 0;
+        // transition: 1s;
+        // transition-delay: 1s;
+      }
+      &.active{
+        .tab-navigation {
+          display: block;
+          opacity: 1;
+          transition: 1s;
+          //transition-delay: 1s;
+        }
+      }
+    }
+  }
+
+.tab-navigation ul {
+  padding: 0;
+  margin-bottom: 24px;
+  li {
+    cursor: pointer;
+    padding: 0;
+    list-style: none;
+    height: 2px;
+    background-color: $gray;
+    margin: 0 5px 0 0;
+    width: 77px;
+    display: inline-block;
+    position: relative;
+    @media screen and (max-width: $break--M) { 
+      width: 60px;
+    }
+    &.active {
+      background-color: $lightblue;
+      span {
+        display: block;
+      }
+    }
+    span {
+      position: absolute;
+      bottom: 0;
+      color: #4493f7;
+      font-size: 12px;
+      font-weight: 700;
+      display: none;
+      width: 200%;
+      margin-bottom: 10px;
+    }
+  }
+}
+
+.case-study-section {
+  background-color: $white;
+  @media screen and (max-width: $break--M) {
+    .fp-controlArrow {
+      display: none;
+    }
+  }
+
+  .slide {
+    background-size: cover !important;
+    background-position: center !important;
+  } 
+
+  .inner-content {
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    .container{
+      display: flex;
+      align-items: center;
+      height: 100%;
+      @media screen and (max-width: $break--M) {
+        padding-left: 40px;
+        padding-right: 40px;
+      }
+    }
+    .content {
+      /* margin-top: 25%; */
+      display: inline-block;
+      width: 50%;
+      color: $white;
+
+      @media screen and (max-width: $break--M) {
+        width: 100%;
+        /* margin-top: 35%; */
+       // @include soft--sides(20px);
+      }
+      
+      h1 {
+        font-size: 42px;
+        line-height: 42px;
+        @media screen and (max-width: $break--M) {
+          font-size: 36px;
+          @include push--ends(10%);
+        }
+      }
+      small {
+        font-size: 21px;
+        margin-bottom: 5%;
+        display: block;
+        font-family: $base-font-secondary;
+      }
+
+      a.btn {
+        @include push--ends(10%);
+        @media screen and (max-width: $break--M) {
+          @include push--ends(20%);
+          width: 100%;
+        }
+      }
+      a.link {
+          @include push--ends(5%);
+          color: #fff;
+      }
+      span {
+          display: block;
+      }
+    }
+  }
+}
+
+.title-block {
+  text-align: center;
+  @include soft--ends(4em);
+  h2 {
+    font-weight: 400;
+    @include text-transform();
+    @include flush--ends();
+    font-family: $base-font-secondary;
+    @media screen and (max-width: $break--M) {
+     font-size: 30px;
+    }
+  }
+}
+.featured-image {
+  position: absolute;
+  bottom: -2px;
+  max-width: 400px;
+  right: 22%;
+  z-index: 1;
+  margin: 0;
+  height: 447px;
+  overflow: hidden;
+
+  @media screen and (min-width: $break--XL) {
+    max-width: 560px;
+    height: 630px;
+  }
+
+  @media (max-width: $screen--L) {
+    display: none;
+  }
+}
+
+.how-can-we-help-section {
+  .btn {
+      margin-top: 10%;
+      @media screen and (max-width: $break--M) {
+        width: 100%;
+      }
+  }
+  @include soft--ends(5em);
+  background-color: $twilightblue;
+  color:$white;
+  @media screen and (max-width: $break--M) {
+    width: 100%;
+    /* @include soft--sides(30px); */
+  }
+
+  .left {
+    @extend .M6;
+    h6 {
+      @include push--ends(0px);
+      font-family: $base-font-secondary;
+      font-size: 21px;
+      font-weight: 200;
+      line-height: 36px;
+      width: 85%;
+      @media screen and (max-width: $break--M) {
+        @include push--ends(2em);
+        width: 100%;
+      }
+    }
+    h2 {
+      font-size: 42px;
+      margin-bottom:1em;
+      @media screen and (max-width: $break--M) {
+        font-size: 36px;
+      } 
+    }
+  }
+  .right {
+    text-align: center;
+    @extend .M6;
+    .btn {
+      min-width: 300px;
+      @media screen and (max-width: $break--M) {
+        min-width: 100%;
+      }
+    }
+  }
+}
+
+.explore-one-400 {
+ 
+  background-color: $whiteDark;
+
+  @media screen and (max-width: $break--M) {
+    @include soft--ends(10%);
+  }
+  .left {
+    @extend .M6;
+    .image {
+      display: block;
+      img {
+        vertical-align: middle;
+      }
+    }
+  }
+  h6 {
+    @include push--ends(5%);
+    font-family: $base-font-secondary;
+    font-size: 21px;
+    font-weight: 200;
+    line-height: 36px;
+    color: $default-font-color;
+    @media screen and (max-width: $break--M) {
+      margin-bottom: 2em;
+      font-size: 16px;
+      font-weight: 200;
+      line-height: 30px;
+    }
+  }
+  h2 {
+    @include push--ends(5px);
+    font-size: 36px;
+    @media screen and (max-width: $break--M) {
+      margin-top: 1em;
+    }
+  }
+  .right {
+    
+    padding-top:7.5%;
+    @include soft--sides(10%);
+    @extend .M6;
+    box-sizing: border-box;
+      a.link {
+        display: block;
+        @include push--ends(5%);
+        font-size: 16px;
+        font-weight: 400;
+        font-family: $base-font-secondary;
+        @media screen and (max-width: $break--M) {
+          @include push--ends(15%);
+        }
+    }
+  }
+}
+
+.case-study-section, .research-section {
+  background-color: $white; 
+}
+
+.research-blocks {
+  background-color: $whiteDark;
+  h2 {
+    font-size: 42px;
+    @include soft--ends(5%);
+    line-height: 1em;
+    @media screen and (max-width: $break--M) {
+      font-size: 36px;
+    }
+  }
+  h5 {
+    font-weight: 400;
+    @extend .h5;
+    font-family: $base-font-secondary;
+  }
+  a.link {
+    color :$white;
+    
+  }
+  .inner-content {
+      p{
+        color: $default-font-color;
+        @media screen and (max-width: $break--M) {
+          display: none;
+        }
+      }
+
+      .btn-secondary.desktop-only {
+        display: inline-block;
+        .fas {
+            float: right;
+            margin: 0 0 0  20px;
+        }
+      }
+    
+  }
+  .content-info {
+    font-size: 12px;
+    display: block;
+    width: 100%;
+    margin-bottom: 5%;
+    a {
+      color: $lightblue;
+      text-decoration: none;
+    }
+    span {
+      font-size: 12px;
+    }
+  }
+  .content-bottom-block {
+    display: flex;
+    z-index: 99;
+    position: relative;
+    background-color: #f8f8f8;
+    @media screen and (max-width: $break--M) {
+      flex-direction: column;
+    }
+    .image {
+      width: 30%;
+      display: inline-block;      
+      position: absolute;
+      bottom: 0px;
+      right: 0;
+      img { 
+        vertical-align: sub;
+        @media screen and (max-width: $break--M) {
+          display: none;
+        }
+      }
+    }
+  }
+  .post.content {
+      height: 100vh !important;
+      color: #fff;
+      z-index: 9;
+      position: relative;
+      display: flex;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      @media screen and (max-width: $break--M) {
+        @include soft--sides(2em);
+        @include soft--ends(5em);
+        height: auto !important;
+      }
+      span {
+        font-size: 12px;
+      }
+  }
+  @extend .row;
+  .reasarch-left-block {
+    @extend .M7;
+    position: relative;
+    background: $whiteDark;
+
+    .inner-content {
+      width: 70%;
+      background-color: $whiteDark;
+      padding-top: 10%;
+      padding-bottom: 12%;
+      @media screen and (max-width: $break--M) {
+        width: 100%;
+        border-bottom: 1px solid $gray;
+      }
+      
+    }
+
+    @media screen and (max-width: $break--M) {
+      .image.mobile-only {
+        z-index: 9;
+        position: relative;
+    }
+    
+    }
+  }
+  .reasarch-right-block {
+    @extend .M5;
+    .content-bottom-block {
+      padding-top:0;
+  
+      @include soft--sides(10%);
+
+      @media screen and (max-width: $break--M) {
+        @include soft--sides(20px);
+        a.link.mobile-only {
+            margin: 15% 0px;
+            color: $black;
+        }
+      }
+      h2 {
+        @include push--ends(20px);
+      }
+    }
+
+    @media screen and (max-width: $break--M) {
+    .image {
+      display: none;
+    }
+      
+    }
+  }
+}
+
+.overlay {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  top: 0;
+  background-color: $twilightblue;
+  z-index: 0;
+  opacity: 0.9;
+}
+
+.content-back-img {
+  position: absolute;
+  z-index: 0;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  background-size: cover !important;
+  background: url(../assets/images/backgound-research.jpg);
+}
+ 
+.become-a-click-block {
+  background-color: $white;
+  text-align: center;
+  @include soft--ends(5em);
+  @extend .desktop-only;
+  .content {
+      width:45%;
+      @include push--auto();
+      @media screen and (max-width: $break--XL){
+        width:75%;
+      }
+  }
+
+  h2 {
+    margin:0 0 20px;
+    font-size: 42px;
+    font-family: $base-font-primary;
+  }
+
+  h4 {
+    font-family: $base-font-secondary;
+    margin-top:1em;
+    margin-bottom:1em;
+    font-size: 24px;
+    font-weight: 100;
+    width: 75%;
+    @include push--auto();
+    line-height: 1.4em;
+  }
+}
+
+footer {
+  @include soft--ends(4em);
+  background-color: $white;
+
+  .logo-footer {
+      max-width: 125px;
+      display: block;
+      margin-bottom: 5%;
+      @media screen and (max-width: $break--M){
+        max-width: 175px;
+      }
+  }
+  .footer-rows {
+    @extend .row; 
+    .left-column {
+      @extend .M4;
+      span {
+        width:65%;
+        display: block;
+        @media screen and (max-width: $break--M){
+          width:100%;
+        }
+      }
+      .mobile-contact-no {
+        margin-top: 1em;
+        margin-bottom: 2em;
+        font-family: $base-font-secondary;
+        font-size: 24px;
+        font-weight: 400;
+      }
+      @media screen and (max-width: $break--M){
+        @include soft--sides(30px);
+        .social-media-icons {
+          display:none;
+        }
+        
+          padding: 0 !important;
+      }
+    }
+    .right-column {
+      @extend .M8;
+      @extend .row; 
+      > div {
+        //@include soft--sides(30px);
+        overflow: hidden;
+        @extend .M4;
+        h5 {
+          font-weight: bold;
+          font-size: 16px;
+          font-family: $base-font-secondary;
+        }
+      }
+    }
+    .subscribe-serch{
+      display: flex;
+      width:70%;
+      position: relative;
+      @media screen and (max-width: $break--M){
+          width:100%;
+      }
+    }
+  }
+  p{
+    font-size: 14px;
+  }
+  a.link {
+    color: $lightblue;
+    font-weight: 400;
+    display: block;
+  }
+  input[type="text"] {
+    border: 0;
+    background-color: #efefef;
+    height: 35px;
+    padding: 2px 10px 0 10px;
+    color: #0b3354;
+    font-weight: 400;
+    width: 100%;
+    font-size: 12px;
+  }
+
+  button {
+    height: 35px;
+    border: none;
+    background-color: #1ca8ff;
+    color: #fff;
+    font-weight: 800;
+    position: absolute;
+    font-size: 12px;
+    padding: 0 10px;
+    cursor: pointer;
+    right:0px;
+  }
+  .subscribe-links {
+    position: relative;  
+    .fas {
+        position: absolute;
+        right: 30px;
+        top: 20px;
+    }
+    @media screen and (max-width: $break--M){
+      p, .subscribe-serch {
+        display: none;
+      }
+      h5 {
+          display: block;
+          border-bottom: 1px solid #b5b5b5;
+          padding: 5% 0;
+      }
+    }
+  }
+  .location-links {
+    position: relative;  
+    .fas {
+        position: absolute;
+        right: 30px;
+        top: 20px;
+    }
+    
+    @media screen and (max-width: $break--M){
+      p {
+          display: none;
+      }
+      h5 {
+          display: block;
+          border-bottom: 1px solid #b5b5b5;
+          padding: 5% 0;
+      }
+    }
+    p {
+      line-height: 20px;
+    }
+  }
+
+  .contact-links {
+    position: relative;  
+    .fas {
+        position: absolute;
+        right: 30px;
+        top: 20px;
+    }
+    @media screen and (max-width: $break--M){
+      p {
+          display: none;
+      }
+      h5 {
+          display: block;
+          border-bottom: 1px solid #b5b5b5;
+          padding: 5% 0;
+      }
+    }
+  }
+}
+
+ul.social-media-icons {
+  display: flex;
+  list-style: none;
+  max-width: 180px;
+  padding: 0;
+  margin: 15% 0;
+  width: 100%;
+  li {
+    flex: 1;
+    a {
+      border: 0px solid;
+      border-radius: 100%;
+      width: 25px;
+      height: 25px;
+      padding: 2px;
+      text-align: center;
+      text-decoration: none;
+      background: $twilightblue;
+      color: #fff;
+      display: flex;
+      align-items: center;
+      i {
+        flex: 1;
+        font-size: 14px;
+      }
+    }
+  }
+}
+ul.mobile-only.social-media-icons {
+  @media screen and (max-width: $break--M){
+    display:flex !important;
+    margin-top: 15%;
+    margin-bottom: 0%;
+    margin-left:auto;
+    margin-right:auto;
+
+    li a {
+      width: 30px;
+      height: 30px;
+    }
+  }
+  display: none;
+}
+.segment-dropdown {
+  position: relative;
+  display: flex;
+  z-index: 9;
+  .selectbox {
+    border: 1px solid #fff;
+    cursor: pointer;
+    padding: 15px 20px;
+    font-size: 14px;
+    margin: 5% 0 0;
+    position: relative;
+    width: auto;
+    min-width: 360px;
+    @media screen and (max-width: $break--M){
+      width: 100%;
+      min-width: auto;
+    }
+    
+    i.fa {
+      position: absolute;
+      right: 20px;
+      top: 20px;
+      color: #1CA8FF;
+    }
+
+    div {
+      display: inline-flex;
+      h5 {
+        overflow: hidden; /* Ensures the content is not revealed until the animation */
+        border-right: .15em solid $white; /* The typwriter cursor */
+        white-space: nowrap; /* Keeps the content on a single line */
+        margin: 0 auto; /* Gives that scrolling effect as the typing happens */
+        // letter-spacing: .15em; /* Adjust as needed */
+        animation: 
+          typing 1.5s steps(40, end),
+          blink-caret .75s step-end infinite;
+          width: 100%;
+      }
+    } 
+  }
+  .dropdown-menu {
+    display: none;
+
+    &:before {
+        content: "";
+        display: block;
+        width: 0px;
+        height: 0px;
+        border-left: 15px solid transparent;
+        border-right: 15px solid transparent;
+        border-bottom: 15px solid #ffffff;
+        position: absolute;
+        top: -15px;
+        left: 50px;
+        right: 0;
+        text-align: center;
+        margin: auto;
+    }
+    ul {
+      padding: 0;
+      margin: 0;
+      list-style: none;
+      text-align: center;
+      li {
+        display: inline-block;
+        width: 45%;
+        padding: 5px;
+        border-bottom: 1px solid #d8d8d8;
+        margin: 5px 2%;
+        white-space: normal;
+
+        @media screen and (max-width: $break--M){
+          width: 100%;
+          padding: 15px;
+          margin: 5px 0%;
+        }
+
+        img {width: 50px;}
+        a {
+          color :$black;
+          text-decoration: none;
+          display: flex;
+          font-family: $base-font-secondary;
+          justify-content: space-between;
+          p {
+            font-size: 16px;
+          }
+        }
+      }
+    }
+  }
+  
+  &.active{ 
+    .dropdown-menu {
+      display: block;
+    }
+  }
+
+  .contentwrapper {
+    position: absolute;
+    top: 140px;
+    width: 50%;
+    background-color: #FFFFFF;
+    left: -35px;
+    @media screen and (max-width: $break--M){
+      width: 100%;
+      left: 0;
+      top: 80px;
+    }
+  }
+}
+.copyrights {
+  width: 100%;
+  background-color: $black;
+  display: block;
+  color:$white;
+  padding: 15px;
+  font-size: 12px;
+  font-family: $base-font-secondary;
+  .sublinks{
+    display:inline-block;
+    @media screen and (max-width: $break--M){
+      text-align: center;
+      line-height: 20px;
+      margin-bottom: 5%;
+    }
+    a {
+       font-size: 12px;
+      margin-right: 5px;
+      margin-left: 5px;
+      text-decoration: none;
+      color: $white ;
+      &:first-child {
+        margin-left: 0px;
+      }
+    }
+  } 
+  span{ 
+    font-size: 12px;
+    float: right;
+    line-height: 12px;
+
+    @media screen and (max-width: $break--M){
+      float: none;
+      display: block;
+      margin: 5px auto;
+      text-align: center;
+    }
+  }
+}
+.featured-image2 {
+  position: absolute;
+  bottom: 5%;
+  width: 35%;
+  right: 12%;
+  z-index: 1;
+  margin: 0;
+  height: auto;
+  overflow: hidden;
+
+  @media screen and (max-width: $break--M){
+    display:none;
+  }
+}
+.fp-slides {
+  @media screen and (max-width: $break--M){
+    overflow: initial !important;
+    margin-top:25%;
+    padding-bottom: 40%;
+    float: left;
+    width: 100%;
+  }
+}
+
+@keyframes typing {
+  from { width: 0 }
+  to { width: 100% }
+}
+
+@keyframes blink-caret {
+  from, to { border-color: transparent }
+  50% { border-color: $white; }
+}
+
+
+
+// contact modal
+
+.contact-modal {
+  .inner-content {
+    display: flex;
+    position: relative;
+    width: 100%;
+    margin: 10% auto;
+    padding: 0% 10%;
+    z-index: 9999;
+    @media screen and (max-width: $break--M){
+      flex-direction: column;
+      margin: 20% auto 10% auto;
+
+      .social-media-icons {
+        display: none;
+      }
+    }
+  }
+  
+  .content-left {
+    font-family: $base-font-secondary;
+    flex: 5;
+    address {
+      font-family: $base-font-secondary;
+      width: calc(50% - 3px);
+      display: inline-block;
+      margin: 2% auto;
+      padding: 0;
+      font-style: inherit;
+      font-size: 1rem;
+      line-height: 24px;
+    }
+    h2{
+      font-size: 4rem;
+    }
+    h5 {
+      font-size: 40px;
+      font-weight: 500;
+      width: 80%;
+      @media screen and (max-width: $break--M){
+        width: 100%;
+        margin: 10% auto;
+      }
+    }
+    .location-links {
+      margin: 5% auto;
+      @media screen and (max-width: $break--M){
+        display: none;
+      }
+    
+    }
+  }
+  
+  .content-right {
+    flex: 6;
+    .form {
+      input {
+        width: 100%;
+        border: 0;
+        background-color: $white;
+        margin: 0 0 20px 0;
+        display: block;
+        padding: 15px;
+        font-family: $base-font-secondary;
+      }
+      textarea {
+        width: 100%;
+        min-height: 200px;
+        background-color: $white;
+        border: 0;
+        display: block;
+        padding: 15px;
+        font-family: $base-font-secondary;
+      } 
+      .btn {
+        margin: 5% auto;
+        @media screen and (max-width: $break--M){
+          width: 100%;
+        }
+      }
+    } 
+  }
+}
+
+.no-js #loader { display: none;  }
+.js #loader { display: block; position: absolute; left: 100px; top: 0; }
+.se-pre-con {
+	position: fixed;
+	left: 0px;
+	top: 0px;
+	width: 100%;
+	height: 100%;
+	z-index: 9999;
+  background:  #fff;
+  overflow: hidden;
+}
+
+
+// This should be import at last for overwrite others
+@import '_fullpage.scss';

@@ -1,0 +1,102 @@
+// Buttons Base styles
+// --------------------------------------------------
+
+.btn {
+  display: inline-block;
+  margin-bottom: 0; 
+  font-weight: $btn-font-weight;
+  text-align: center;
+  vertical-align: middle;
+  cursor: pointer;
+  background-image: none; 
+  border: 1px solid transparent;
+  white-space: nowrap;
+  @include soft--ends(25px);
+  @include soft--sides(50px);
+  min-width: 200px;
+  font-family: $base-font-secondary;
+  text-decoration: none;
+  font-size: 16px;
+  color: #fff;
+
+  &:hover,
+  &:focus {
+    text-decoration: none;
+  }
+
+  &:active,
+  &.active {
+    outline: 0;
+    background-image: none;
+  }
+
+  &.disabled,
+  &[disabled],
+  fieldset[disabled] & {
+    cursor: not-allowed;
+    pointer-events: none; 
+    opacity: .65;
+    box-shadow: none;
+  }
+}
+
+.btn-block {
+  display: block;
+  width: 100%;
+}
+.btn-has-icon {
+  .fas {
+    float: right;
+  }
+}
+
+a.link {
+ 
+  @include font-size($base-font-size);
+  font-family: $base-font-secondary;
+  cursor: pointer;
+  text-decoration: none !important;
+  i {
+    margin-left: 10px;
+    color:$lightblue;
+    transition: .5s;
+  }
+  &:hover {
+    i {
+      margin-left: 20px;
+    }
+  }
+}
+// Vertically space out multiple block buttons
+.btn-block + .btn-block {
+  margin-top: 5px;
+}
+
+// Specificity overrides
+input[type="submit"],
+input[type="reset"],
+input[type="button"] {
+  &.btn-block {
+    width: 100%;
+  }
+}
+
+.btn-primary {
+  background-color: $lightblue;
+  -webkit-transition: all 0.3s ease-out; /* Safari<=6 Android<=4.3 */
+  transition: all 0.3s ease-out;  
+  &:hover {
+    background-color: $twilightblue;
+  }
+}
+
+.btn-secondary{
+    border: 1px solid;
+    color: $black;
+    -webkit-transition: all 0.3s ease-out; /* Safari<=6 Android<=4.3 */
+    transition: all 0.3s ease-out;
+    &:hover {
+      color :$white;
+      background-color: $gray;
+    }
+}
